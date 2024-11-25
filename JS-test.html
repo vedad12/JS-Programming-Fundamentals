@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hr">
+    <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link src="sheetstyle" href="js test.js"></link>
+     <title>Izračunavanje zapremine valjka</title>
+    </head>  
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+    <body>
+        <div class="container">
+         <h2>Izračunaj zapreminu valjka</h2>
+        
+         <div class="input-group">
+            <label for="radius">Poluprečnik (r):</label>
+            <input type="number" id="radius" placeholder="Unesite poluprečnik" required>
+         </div>
+        
+         <div class="input-group">
+            <label for="height">Visina (H):</label>
+            <input type="number" id="height" placeholder="Unesite visinu" required>
+         </div>
+        
+         <button onclick="calculateVolume()">Izračunaj</button>
+        
+         <div id="result"></div>
+        </div>
+
+        <script>
+         function calculateVolume() {
+            // Uzimanje unetih vrednosti
+            const radius = parseFloat(document.getElementById("radius").value);
+            const height = parseFloat(document.getElementById("height").value);
+            
+            // Provera da li su uneti ispravni brojevi
+            if (isNaN(radius) || isNaN(height) || radius <= 0 || height <= 0) {
+                alert("Molimo unesite validne vrednosti za poluprečnik i visinu.");
+                return;
+            }
+
+            // Konstanta Pi
+            const pi = 3.14;
+            
+            // Formula za zapreminu valjka: V = r^2 * π * H
+            const volume = Math.pow(radius, 2) * pi * height;
+
+            // Prikaz rezultata
+            document.getElementById("result").innerHTML = `Zapremina valjka je: ${volume.toFixed(2)} kubnih jedinica.`;
+          }
+        </script>
+    </body>
+</html>
