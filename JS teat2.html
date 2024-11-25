@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Računarske Operacije</title>
+     </head>
+        <script>
+          function izvrsiOperaciju() {
+            // Unos prvog broja
+            let prviBroj = parseFloat(prompt("Unesite prvi broj:"));
+            
+            // Unos operacije (+, -, *, /)
+            let operacija = prompt("Unesite operaciju (+, -, *, /):");
+            
+            // Unos drugog broja
+            let drugiBroj = parseFloat(prompt("Unesite drugi broj:"));
+            
+            let rezultat;
+            
+            // Provera koju operaciju treba izvršiti
+            if (operacija === '+') {
+                rezultat = prviBroj + drugiBroj;
+            } else if (operacija === '-') {
+                rezultat = prviBroj - drugiBroj;
+            } else if (operacija === '*') {
+                rezultat = prviBroj * drugiBroj;
+            } else if (operacija === '/') {
+                if (drugiBroj !== 0) {
+                    rezultat = prviBroj / drugiBroj;
+                } else {
+                    alert("Greška: Deljenje sa nulom nije dozvoljeno.");
+                    return;
+                }
+            } else {
+                alert("Nevažeća operacija. Unesite jednu od sledećih operacija: +, -, *, /.");
+                return;
+            }
+            
+            // Prikazivanje rezultata
+            alert("Rezultat: " + rezultat);
+          }
+        </script>
+    <body>
+
+     <h1>Računarske operacije</h1>
+     <button onclick="izvrsiOperaciju()">Izvrši operaciju</button>
+
+    </body>
+</html>
